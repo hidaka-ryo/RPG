@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     Rigidbody m_rigidbody;
     Animator m_animator;
     private ItemInformation m_item;
+    private Collider m_swordCollider;
     [SerializeField] float m_movingSpeed = 5f;
     [SerializeField] float m_isGroundedLength = 1f;
     [SerializeField] float m_jumpPower = 5f;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody>();
         m_animator = GetComponent<Animator>();
         m_currentHp = m_maxHp;
+        m_swordCollider = GameObject.Find("Sword14_Blue").GetComponent<CapsuleCollider>();
     }
 
     void Update()
@@ -55,6 +57,8 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             m_animator.SetBool("Attack", true);
+            m_swordCollider.enabled = true;
+            Invoke("ColliderReset", 0.3f);
         }
 
         if (Input.GetKeyDown(KeyCode.R)) Step();
@@ -132,5 +136,10 @@ public class Player : MonoBehaviour
         Debug.DrawLine(start, end);
         bool isGrounded = Physics.Linecast(start, end);
         return isGrounded;
+    }
+
+    private void ColliderReset()
+    {
+        m_swordCollider.enabled = false;
     }
 }
