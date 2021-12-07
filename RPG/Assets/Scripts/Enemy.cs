@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
             if (m_enemyHp == 0)
             {
                 Destroy(transform.root.gameObject);
-                m_item.ItemDrop();
+                //m_item.ItemDrop();
             }
         }
     }
