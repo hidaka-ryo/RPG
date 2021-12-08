@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     Vector3 m_tPos;
     Rigidbody m_rigidbody;
     Animator m_animator;
-    private ItemInformation m_item;
     private Collider m_swordCollider;
     [SerializeField] float m_movingSpeed = 5f;
     [SerializeField] float m_isGroundedLength = 1f;
@@ -18,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] Collider m_attackCollider;
     [SerializeField] int m_maxHp = 20;
     [SerializeField] int m_currentHp;
+    [SerializeField] private Item item;
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
@@ -63,23 +63,6 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R)) Step();
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        m_item = other.GetComponent<ItemInformation>();
-
-        //if (m_item.m_itemName.GetItemType() == Item.Type.HPRecovery)
-        //{
-        //    m_currentHp += m_item.m_itemName.GetAmount();
-
-        //    if (m_currentHp > 20)
-        //    {
-        //        m_currentHp = 20;
-        //    }
-        //}
-        Destroy(other.gameObject);
-    }
-
     void Attack1Start()
     {
         m_attackCollider.enabled = true;

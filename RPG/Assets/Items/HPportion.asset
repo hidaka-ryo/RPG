@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HPportion
   m_EditorClassIdentifier: 
   itemName: "\u56DE\u5FA9\u30DD\u30FC\u30B7\u30E7\u30F3"
-  itemImage: {fileID: 21300000, guid: 321e52832c1c44b929fba78b700660b7, type: 3}
+  itemImage: {fileID: 21300000, guid: fab4fb98d3f28e04991b87348d881656, type: 3}

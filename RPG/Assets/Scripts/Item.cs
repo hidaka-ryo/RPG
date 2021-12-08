@@ -10,4 +10,9 @@ public class Item : ScriptableObject
 
     public string MyItemName { get => itemName;}
     public Sprite MyItemImage { get => itemImage;}
+
+    public string GetitemName()
+    {
+        return itemName;
+    }
 }

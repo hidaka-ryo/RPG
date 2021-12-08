@@ -5,11 +5,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] int m_enemyHp = 1;
-    private ItemManager m_item;
+    private ItemManeger item;
+    
     // Start is called before the first frame update
     void Start()
     {
-        m_item = GetComponent<ItemManager>();
+        item = GetComponent<ItemManeger>();
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class Enemy : MonoBehaviour
             if (m_enemyHp == 0)
             {
                 Destroy(transform.root.gameObject);
-                //m_item.ItemDrop();
+                item.ItemDrop();
             }
         }
     }
